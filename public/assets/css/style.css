@@ -7,10 +7,39 @@
 
 a {
 	text-decoration: none;
+	color: blue;
+}
+a:hover {
+	color: red;
 }
 
 li {
 	list-style-type: none;
+}
+
+#header {
+	height: 50px;
+	width: 100%;
+	background-color: red;
+}
+
+#container {
+	width: 500px;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+#title {
+	/*display: inline;*/
+	margin: 15px 0;
+	padding: 15px 0;
+	text-align: center;
+	border-bottom: solid 1px;
+}
+
+#content .item {
+	margin: 20px 0;
+	padding: 0 20px;
 }
 
 

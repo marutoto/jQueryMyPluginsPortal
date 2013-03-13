@@ -17,7 +17,7 @@ class Controller_Portals extends Controller_Template {
 		$data['test'] = 'testtest';
 		$view = View::forge('portals/index', $data);
 
-		$this->template->title = 'portals';
+		$this->template->title = 'Core Resources TOP';
 		$this->template->content = $view;
 
 	}

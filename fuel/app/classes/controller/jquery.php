@@ -13,11 +13,11 @@ class Controller_Jquery extends Controller_Template {
 
 	public function action_pluginslist() {
 
-		$data['plugins'] = array('aaa','bbb');
+		$data['plugins'] = array('slideshow','lightbox');
 
 		$view = View::forge('jquery/pluginslist', $data);
 
-		$this->template->title = 'yamauaaa';
+		$this->template->title = 'jQuery Core Plugins';
 		$this->template->content = $view;
 
 	}

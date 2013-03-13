@@ -1,11 +1,11 @@
 
-<div>
+<div class="item">
 <?php echo Html::anchor('jquery/pluginslist', 'jQuery Plugins');?>
 </div>
-<div>
-<?php echo Html::anchor('#', 'under construction...');?>
+<div class="item">
+<?php echo Html::anchor('#', 'EXAMPLE Corporate Document');?>
 </div>
-<div>
+<div class="item">
 <?php echo Html::anchor('#', 'under construction...');?>
 </div>
 
