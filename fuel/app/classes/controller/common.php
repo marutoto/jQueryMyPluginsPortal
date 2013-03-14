@@ -8,7 +8,7 @@ class Controller_Common extends Controller_Base {
 
 	}
 
-	public static function action_download() {
+	public function action_download() {
 
 		$file_name = Input::post('file_name');
 		$file_path = $this->resources . Input::post('file_path');
