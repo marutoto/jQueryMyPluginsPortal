@@ -15,7 +15,7 @@ class Controller_Jquerycoreplugins extends Controller_Base {
 
 		if($handle = opendir($this->resources.'jquerycoreplugins/')) {
 
-			$data['items'] = array();
+			$data['dirs'] = array();
 
 			$i=0;
 			while(false !== ($item_name = readdir($handle))) {
@@ -33,11 +33,28 @@ class Controller_Jquerycoreplugins extends Controller_Base {
 
 					// ディレクトリの場合
 					} elseif(is_dir($item_path)) {
-						$data['items'][$i] = $item_name . ' dir';
+
+						if($handle_sub = opendir($this->resources.'jquerycoreplugins/'.$item_name)) {
+
+							$data['dirs'][$i]['dir_name'] = $item_name;
+
+							while(false !== ($file_name = readdir($handle_sub))) {
+
+								array_push($data['dirs'][$i]['files'], $file_name);
+
+							}
+
+						}
+
+
+
+
+
+
 
 					// ファイルの場合
 					} else {
-						$data['items'][$i] = $item_name . ' file';
+						$data['files'][$i] = $item_name . ' file';
 					}
 
 					$i++;
