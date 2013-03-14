@@ -13,6 +13,8 @@ class Controller_Corporatedocs extends Controller_Base {
 
 	public function action_index() {
 
+		$data = array();
+
 		// ダウンロード用POSTデータが存在する場合
 		if(Input::post()) {
 			$file_name = Input::post('file_name');
