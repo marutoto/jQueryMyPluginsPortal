@@ -89,7 +89,7 @@ class Controller_Jquerycoreplugins extends Controller_Base {
 
 
 		//$view = View::forge('jquerycoreplugins/index', $data);
-		$view = View::forge($content_name.'/index', $data);
+		$view = View::forge('list/index', $data);
 
 
 		$fp = fopen($this->resources.$content_name.'/'.$content_name, 'r');
