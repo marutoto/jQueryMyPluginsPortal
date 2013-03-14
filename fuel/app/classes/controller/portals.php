@@ -20,8 +20,8 @@ class Controller_Portals extends Controller_Template {
 		// $data['uri'] = DOCROOT . 'assets/resourecs';
 		// 「/home/marutoto/www/yamauaa/portals/public/assets/resourecs」
 
-		$data['path'] = Config::get('path.resources');
-/*
+		//$data['path'] = Config::get('path.resources');
+
 		if($handle = opendir(Config::get('path.resources'))) {
 
 			$data['dirs'] = array();
@@ -34,7 +34,7 @@ class Controller_Portals extends Controller_Template {
 			closedir($handle);
 
 		}
-*/
+
 
 
 		$view = View::forge('portals/index', $data);

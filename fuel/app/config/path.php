@@ -2,7 +2,7 @@
 
 return array(
 
-	'resources' => DOCROOT.'assets/resources'
+	'resources' => DOCROOT.'assets/resources/'
 
 );
 
