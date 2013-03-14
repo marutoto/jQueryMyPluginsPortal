@@ -13,7 +13,9 @@ class Controller_Jquerycoreplugins extends Controller_Base {
 
 	public function action_index() {
 
-		$data = array();
+		$data          = array();
+		$data['dirs']  = array();
+		$data['files'] = array();
 
 		// ダウンロード用POSTデータが存在する場合
 		if(Input::post()) {
@@ -46,6 +48,7 @@ class Controller_Jquerycoreplugins extends Controller_Base {
 						if($handle_sub = opendir($this->resources . $content_name . '/' . $item_name)) {
 
 							$data['dirs'][$i]['dir_name'] = $item_name;
+							$data['dirs'][$i]['dir_name'] = array();
 
 							$j = 0;
 							while(false !== ($file_name = readdir($handle_sub))) {
