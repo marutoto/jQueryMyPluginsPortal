@@ -14,3 +14,8 @@ nbproject/
 .idea
 
 /fuel/app/config/crypt.php
+
+.htdocs
+fuel/app/config/development/*
+public/assets/resources/*
+
