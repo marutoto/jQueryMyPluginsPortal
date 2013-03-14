@@ -42,12 +42,16 @@ li {
 }
 
 #content .item.dir {
-
+	font-weight: bold;
 }
 
-#content .item.dir .left {
-	width: 300px;
+#content .item .left {
+	width: 330px;
 	float: left;
+}
+
+#content .item .right {
+	text-align: left;
 }
 
 #content .item.file {
@@ -56,8 +60,12 @@ li {
 }
 
 #content .item.file .left {
-	width: 350px;
+	width: 300px;
 	float: left;
+}
+
+#content .item.file .right {
+	text-align: left;
 }
 
 #end {

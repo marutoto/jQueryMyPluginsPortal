@@ -28,7 +28,7 @@
 <?php foreach($files as $file) :?>
 
 	<?php echo Form::open()?>
-	<div class="item dir">
+	<div class="item">
 		<div class="left">
 			<?php echo Form::hidden('file_name', $file['file_name'])?>
 			<?php echo Form::hidden('file_path', $file['file_path'])?>
