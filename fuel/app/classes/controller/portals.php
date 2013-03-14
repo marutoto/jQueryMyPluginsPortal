@@ -15,12 +15,12 @@ class Controller_Portals extends Controller_Template {
 	public function action_index() {
 
 		// これでドキュメントルートを取ってくれる
+		// $data['uri'] = Uri::base('base_url') . 'assets/resourecs';
 		// 「http://yamauaa.achoo.jp/portals/public/」
-		$data['uri'] = DOCROOT.'/assets/resourecs';
+		// $data['uri'] = DOCROOT . 'assets/resourecs';
+		// 「/home/marutoto/www/yamauaa/portals/public/assets/resourecs」
 
-
-		/*
-		if($handle = opendir(Uri::base('base_url') . 'assets/resources')) {
+		if($handle = opendir(DOCROOT.'assets/resourecs')) {
 
 			while(false !== ($file = readdir($handle))) {
 				$data['file'] = $file;
@@ -29,7 +29,6 @@ class Controller_Portals extends Controller_Template {
 			closedir($handle);
 
 		}
-		*/
 
 
 
