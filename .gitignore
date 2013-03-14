@@ -17,8 +17,5 @@ nbproject/
 
 .htaccess
 fuel/app/config/development/*
-public/assets/resources/*
-public/assets/resources/*/*
-public/assets/resources/*/*/*
-public/assets/resources/*/*/*/*
+public/assets/resources/
 
