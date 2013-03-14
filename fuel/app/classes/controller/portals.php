@@ -26,8 +26,11 @@ class Controller_Portals extends Controller_Template {
 
 			$data['dirs'] = array();
 
+			$i = 0;
 			while(false !== ($dir = readdir($handle))) {
 
+				echo $i;
+				$i++;
 				array_push($data['dirs'], array($dir => $dir.' Name'));
 			}
 
