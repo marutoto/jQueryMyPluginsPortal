@@ -1,6 +1,6 @@
 <?php
 
-class Controller_Jquery extends Controller_Template {
+class Controller_Jquerycoreplugins extends Controller_Template {
 
 	public function before() {
 
@@ -11,11 +11,11 @@ class Controller_Jquery extends Controller_Template {
 		$this->template->js = array();
 	}
 
-	public function action_pluginslist() {
+	public function action_index() {
 
 		$data['plugins'] = array('slideshow','lightbox');
 
-		$view = View::forge('jquery/pluginslist', $data);
+		$view = View::forge('jquerycoreplugins/index', $data);
 
 		$this->template->title = 'jQuery Core Plugins';
 		$this->template->content = $view;

@@ -26,11 +26,11 @@ class Controller_Portals extends Controller_Template {
 
 			$data['dirs'] = array();
 
-			while(false !== ($dir = readdir($handle))) {
+			while(false !== ($dir_name = readdir($handle))) {
 
 				//$dir_disp_name = xxx;
 
-				if($dir != '.' && $dir != '..') {
+				if($dir_name != '.' && $dir_name != '..') {
 					$data['dirs'][$dir_name] = $dir_name.' Name';
 				}
 			}
