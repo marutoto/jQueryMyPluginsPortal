@@ -14,14 +14,20 @@ class Controller_Portals extends Controller_Template {
 
 	public function action_index() {
 
-		/*
-		if($handle = opendir('')) {
+		// これでドキュメントルートを取ってくれる
+		// 「http://yamauaa.achoo.jp/portals/public/」
+		//$data['uri'] = Uri::base('base_url');
 
+		if($handle = opendir(Uri::base('base_url') . 'assets/resources')) {
 
+			while(false !== ($file = readdir($handle))) {
+				$data['file'] = $file;
+			}
+
+			closedir($handle);
 
 		}
-		*/
-		$data['uri'] = Uri::base('base_url');
+
 
 
 		$data['test'] = 'testtest';
