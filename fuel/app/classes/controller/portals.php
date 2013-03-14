@@ -1,6 +1,6 @@
 <?php
 
-class Controller_Portals extends Controller_Template {
+class Controller_Portals extends Controller_Base {
 
 	public function before() {
 
@@ -20,9 +20,7 @@ class Controller_Portals extends Controller_Template {
 		// $data['uri'] = DOCROOT . 'assets/resourecs';
 		// 「/home/marutoto/www/yamauaa/portals/public/assets/resourecs」
 
-		$resources = Config::get('path.resources');
-
-		if($handle = opendir($resources)) {
+		if($handle = opendir($this->resources)) {
 
 			$data['dirs'] = array();
 
@@ -30,7 +28,7 @@ class Controller_Portals extends Controller_Template {
 
 				if($dir_name != '.' && $dir_name != '..') {
 
-					$fp = fopen($resources.$dir_name.'/'.$dir_name, 'r');
+					$fp = fopen($this->resources.$dir_name.'/'.$dir_name, 'r');
 
 					if($fp) {
 
