@@ -20,7 +20,7 @@ class Controller_Portals extends Controller_Template {
 		// $data['uri'] = DOCROOT . 'assets/resourecs';
 		// 「/home/marutoto/www/yamauaa/portals/public/assets/resourecs」
 
-		if($handle = opendir(DOCROOT.'assets/resourecs')) {
+		if($handle = opendir(DOCROOT.'assets/resources')) {
 
 			while(false !== ($file = readdir($handle))) {
 				$data['file'] = $file;
