@@ -20,19 +20,28 @@ class Controller_Portals extends Controller_Template {
 		// $data['uri'] = DOCROOT . 'assets/resourecs';
 		// 「/home/marutoto/www/yamauaa/portals/public/assets/resourecs」
 
-		//$data['path'] = Config::get('path.resources');
+		$resources = Config::get('path.resources');
 
-		if($handle = opendir(Config::get('path.resources'))) {
+		if($handle = opendir($resources)) {
 
 			$data['dirs'] = array();
 
 			while(false !== ($dir_name = readdir($handle))) {
 
-				//$dir_disp_name = xxx;
-
 				if($dir_name != '.' && $dir_name != '..') {
-					$data['dirs'][$dir_name] = $dir_name.' Name';
+
+					$fp = fopen($resources.$dir_name.'/'.$dir_name, 'r');
+
+					if($fp) {
+
+						$dir_disp_name = fgets($fp);
+
+						$data['dirs'][$dir_name] = $dir_disp_name;
+
+					}
+
 				}
+
 			}
 
 			closedir($handle);
