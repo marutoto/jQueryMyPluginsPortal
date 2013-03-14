@@ -38,6 +38,7 @@ li {
 
 #content .item-area {
 	margin: 10px 0;
+	padding: 10px 0;
 	background-color: blue;
 }
 
@@ -47,6 +48,7 @@ li {
 }
 
 #content .item.dir {
+	margin: 10px 0;
 	font-weight: bold;
 }
 
