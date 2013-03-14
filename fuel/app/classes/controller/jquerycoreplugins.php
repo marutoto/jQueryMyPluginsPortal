@@ -25,7 +25,6 @@ class Controller_Jquerycoreplugins extends Controller_Base {
 		$class_name = get_class($this);
 		$content_name = strtolower(str_replace('Controller_', '', $class_name));
 
-		//if($handle = opendir($this->resources.'jquerycoreplugins/')) {
 		if($handle = opendir($this->resources . $content_name . '/')) {
 
 			$i = 0;
@@ -34,17 +33,14 @@ class Controller_Jquerycoreplugins extends Controller_Base {
 				if($item_name != '.' && $item_name != '..') {
 
 					$item_path = $this->resources . $content_name . '/' . $item_name;
-					//$item_path = $this->resources . 'jquerycoreplugins/' . $item_name;
 
 					// 表示名用ファイルの場合
-					//if($item_name == 'jquerycoreplugins') {
 					if($item_name == $content_name) {
 						continue;
 
 					// ディレクトリの場合
 					} elseif(is_dir($item_path)) {
 
-						//if($handle_sub = opendir($this->resources.'jquerycoreplugins/'.$item_name)) {
 						if($handle_sub = opendir($this->resources . $content_name . '/' . $item_name)) {
 
 							$data['dirs'][$i]['dir_name'] = $item_name;
@@ -54,8 +50,6 @@ class Controller_Jquerycoreplugins extends Controller_Base {
 
 								if($file_name != '.' && $file_name != '..') {
 
-									//$file_path = $item_path . '/' . $file_name;
-									//$file_path = 'jquerycoreplugins/' . $item_name . '/' . $file_name;
 									$file_path = $content_name . '/' . $item_name . '/' . $file_name;
 
 									$data['dirs'][$i]['files'][$j]['file_name'] = $file_name;
@@ -72,7 +66,6 @@ class Controller_Jquerycoreplugins extends Controller_Base {
 					} else {
 
 						$data['files'][$i]['file_name'] = $item_name;
-						//$data['files'][$i]['file_path'] = 'jquerycoreplugins/' . $item_name;
 						$data['files'][$i]['file_path'] = $content_name . '/' . $item_name;
 
 					}
@@ -87,10 +80,7 @@ class Controller_Jquerycoreplugins extends Controller_Base {
 
 		}
 
-
-		//$view = View::forge('jquerycoreplugins/index', $data);
 		$view = View::forge('list/index', $data);
-
 
 		$fp = fopen($this->resources.$content_name.'/'.$content_name, 'r');
 		if($fp) $content_disp_name = fgets($fp);
