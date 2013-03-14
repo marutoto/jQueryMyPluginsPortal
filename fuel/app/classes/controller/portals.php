@@ -31,6 +31,7 @@ class Controller_Portals extends Controller_Template {
 
 				echo $i;
 				$i++;
+				echo $dir;
 				array_push($data['dirs'], array($dir => $dir.' Name'));
 			}
 
