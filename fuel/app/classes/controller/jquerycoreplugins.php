@@ -51,10 +51,6 @@ class Controller_Jquerycoreplugins extends Controller_Base {
 		}
 
 
-
-
-		$data['plugins'] = array('slideshow','lightbox');
-
 		$view = View::forge('jquerycoreplugins/index', $data);
 
 		$this->template->title = 'jQuery Core Plugins';
