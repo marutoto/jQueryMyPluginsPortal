@@ -36,6 +36,11 @@ li {
 	border-bottom: solid 1px;
 }
 
+#content .item-area {
+	margin: 10px 0;
+	backbround-color: blue;
+}
+
 #content .item {
 	margin: 20px 0;
 	padding: 0 20px;
@@ -46,13 +51,11 @@ li {
 }
 
 #content .item .left {
-	width: 330px;
+	width: 390px;
 	float: left;
 }
 
 #content .item .right {
-	width: 130px;
-	float: left;
 	text-align: left;
 }
 
@@ -62,13 +65,11 @@ li {
 }
 
 #content .item.file .left {
-	width: 300px;
+	width: 360px;
 	float: left;
 }
 
 #content .item.file .right {
-	width: 130px;
-	float: left;
 	text-align: left;
 }
 
@@ -76,7 +77,6 @@ li {
 	margin: 15px 0;
 	padding: 15px 0;
 	border-top: solid 1px;
-	clear: both;
 }
 
 /*
