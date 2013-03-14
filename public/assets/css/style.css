@@ -51,6 +51,8 @@ li {
 }
 
 #content .item .right {
+	width: 130px;
+	float: left;
 	text-align: left;
 }
 
@@ -65,6 +67,8 @@ li {
 }
 
 #content .item.file .right {
+	width: 130px;
+	float: left;
 	text-align: left;
 }
 
