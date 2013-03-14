@@ -15,7 +15,10 @@ nbproject/
 
 /fuel/app/config/crypt.php
 
-.htdocs
+.htaccess
 fuel/app/config/development/*
 public/assets/resources/*
+public/assets/resources/*/*
+public/assets/resources/*/*/*
+public/assets/resources/*/*/*/*
 
