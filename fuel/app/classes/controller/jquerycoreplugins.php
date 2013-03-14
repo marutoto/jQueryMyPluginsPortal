@@ -13,7 +13,7 @@ class Controller_Jquerycoreplugins extends Controller_Base {
 
 	public function action_index() {
 
-		if($handle = opendir($this->resources)) {
+		if($handle = opendir($this->resources.'jquerycoreplugins/')) {
 
 			$data['items'] = array();
 
@@ -33,11 +33,11 @@ class Controller_Jquerycoreplugins extends Controller_Base {
 
 					// ディレクトリの場合
 					} elseif(is_dir($item_path)) {
-						$data['items'][$i] = $item_name . 'dir';
+						$data['items'][$i] = $item_name . ' dir';
 
 					// ファイルの場合
 					} else {
-						$data['items'][$i] = $item_name . 'file';
+						$data['items'][$i] = $item_name . ' file';
 					}
 
 					$i++;
