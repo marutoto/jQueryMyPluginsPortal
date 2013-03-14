@@ -16,8 +16,10 @@ class Controller_Portals extends Controller_Template {
 
 		// これでドキュメントルートを取ってくれる
 		// 「http://yamauaa.achoo.jp/portals/public/」
-		//$data['uri'] = Uri::base('base_url');
+		$data['uri'] = DOCROOT.'/assets/resourecs';
 
+
+		/*
 		if($handle = opendir(Uri::base('base_url') . 'assets/resources')) {
 
 			while(false !== ($file = readdir($handle))) {
@@ -27,10 +29,10 @@ class Controller_Portals extends Controller_Template {
 			closedir($handle);
 
 		}
+		*/
 
 
 
-		$data['test'] = 'testtest';
 		$view = View::forge('portals/index', $data);
 
 		$this->template->title = 'Core Resources TOP';

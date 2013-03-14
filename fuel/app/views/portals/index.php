@@ -1,4 +1,4 @@
-<?php echo $file;?>
+<?php echo $uri;?>
 <div class="item">
 <?php echo Html::anchor('jquery/pluginslist', 'jQuery Plugins');?>
 </div>
