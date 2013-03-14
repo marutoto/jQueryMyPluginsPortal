@@ -1,8 +1,8 @@
 
-<?php foreach($dirs as $dir => $dir_name) :?>
+<?php foreach($dirs as $dir_name => $dir_disp_name) :?>
 
 	<div class="item">
-		<?php echo Html::anchor($dir, $dir_name);?>
+		<?php echo Html::anchor($dir_name, $dir_disp_name);?>
 	</div>
 
 <?php endforeach;?>
