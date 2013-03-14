@@ -13,19 +13,20 @@ class Controller_Jquerycoreplugins extends Controller_Base {
 
 	public function action_index() {
 
+		//$class_name = get_class($this);
+		//$content_name = strtolower(str_replace('Controller_', '', $class_name));
+
+
 		if($handle = opendir($this->resources.'jquerycoreplugins/')) {
 
-			$data['dirs'] = array();
-
-			$i=0;
+			$i = 0;
 			while(false !== ($item_name = readdir($handle))) {
 
 				if($item_name != '.' && $item_name != '..') {
 
+					// パスを取得
+					//$item_path = $this->resources . $content_name . '/' . $item_name;
 					$item_path = $this->resources . 'jquerycoreplugins/' . $item_name;
-
-					//$class_name = get_class($this);
-					//$dir_name = strtolower(str_replace('Controller_', '', $class_name));
 
 					// 表示名用ファイルの場合
 					if($item_name == 'jquerycoreplugins') {
@@ -37,25 +38,30 @@ class Controller_Jquerycoreplugins extends Controller_Base {
 						if($handle_sub = opendir($this->resources.'jquerycoreplugins/'.$item_name)) {
 
 							$data['dirs'][$i]['dir_name'] = $item_name;
-							$data['dirs'][$i]['files'] = array();
 
+							$j = 0;
 							while(false !== ($file_name = readdir($handle_sub))) {
 
-								array_push($data['dirs'][$i]['files'], $file_name);
+								if($file_name != '.' && $file_name != '..') {
+
+									$file_path = $item_path . '/' . $file_name;
+
+									$data['dirs'][$i]['files'][$j]['file_name'] = $file_name;
+									$data['dirs'][$i]['files'][$j]['file_path'] = $file_path;
+
+									$j++;
+								}
 
 							}
 
 						}
 
-
-
-
-
-
-
 					// ファイルの場合
 					} else {
-						$data['files'][$i] = $item_name . ' file';
+
+						$data['files'][$i]['file_name'] = $item_name;
+						$data['files'][$i]['file_path'] = $item_path;
+
 					}
 
 					$i++;
