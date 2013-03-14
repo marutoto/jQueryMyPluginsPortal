@@ -13,9 +13,7 @@ class Controller_Jquerycoreplugins extends Controller_Base {
 
 	public function action_index() {
 
-		//$class_name = get_class($this);
-		//$content_name = strtolower(str_replace('Controller_', '', $class_name));
-
+		// ダウンロード用POSTデータが存在する場合
 		if(Input::post()) {
 			$file_name = Input::post('file_name');
 			$file_path = $this->resources . Input::post('file_path');
@@ -23,25 +21,31 @@ class Controller_Jquerycoreplugins extends Controller_Base {
 			My_Common::download($file_name, $file_path);
 		}
 
-		if($handle = opendir($this->resources.'jquerycoreplugins/')) {
+		// 一覧表示処理
+		$class_name = get_class($this);
+		$content_name = strtolower(str_replace('Controller_', '', $class_name));
+
+		//if($handle = opendir($this->resources.'jquerycoreplugins/')) {
+		if($handle = opendir($this->resources . $content_name . '/')) {
 
 			$i = 0;
 			while(false !== ($item_name = readdir($handle))) {
 
 				if($item_name != '.' && $item_name != '..') {
 
-					// パスを取得
-					//$item_path = $this->resources . $content_name . '/' . $item_name;
-					$item_path = $this->resources . 'jquerycoreplugins/' . $item_name;
+					$item_path = $this->resources . $content_name . '/' . $item_name;
+					//$item_path = $this->resources . 'jquerycoreplugins/' . $item_name;
 
 					// 表示名用ファイルの場合
-					if($item_name == 'jquerycoreplugins') {
+					//if($item_name == 'jquerycoreplugins') {
+					if($item_name == $content_name) {
 						continue;
 
 					// ディレクトリの場合
 					} elseif(is_dir($item_path)) {
 
-						if($handle_sub = opendir($this->resources.'jquerycoreplugins/'.$item_name)) {
+						//if($handle_sub = opendir($this->resources.'jquerycoreplugins/'.$item_name)) {
+						if($handle_sub = opendir($this->resources . $content_name . '/' . $item_name)) {
 
 							$data['dirs'][$i]['dir_name'] = $item_name;
 
@@ -51,7 +55,8 @@ class Controller_Jquerycoreplugins extends Controller_Base {
 								if($file_name != '.' && $file_name != '..') {
 
 									//$file_path = $item_path . '/' . $file_name;
-									$file_path = 'jquerycoreplugins/' . $item_name . '/' . $file_name;
+									//$file_path = 'jquerycoreplugins/' . $item_name . '/' . $file_name;
+									$file_path = $content_name . '/' . $item_name . '/' . $file_name;
 
 									$data['dirs'][$i]['files'][$j]['file_name'] = $file_name;
 									$data['dirs'][$i]['files'][$j]['file_path'] = $file_path;
@@ -67,7 +72,8 @@ class Controller_Jquerycoreplugins extends Controller_Base {
 					} else {
 
 						$data['files'][$i]['file_name'] = $item_name;
-						$data['files'][$i]['file_path'] = 'jquerycoreplugins/' . $item_name;
+						//$data['files'][$i]['file_path'] = 'jquerycoreplugins/' . $item_name;
+						$data['files'][$i]['file_path'] = $content_name . '/' . $item_name;
 
 					}
 
@@ -82,9 +88,14 @@ class Controller_Jquerycoreplugins extends Controller_Base {
 		}
 
 
-		$view = View::forge('jquerycoreplugins/index', $data);
+		//$view = View::forge('jquerycoreplugins/index', $data);
+		$view = View::forge($content_name.'/index', $data);
 
-		$this->template->title = 'jQuery Core Plugins';
+
+		$fp = fopen($this->resources.$dir_name.'/'.$dir_name, 'r');
+		if($fp) $dir_disp_name = fgets($fp);
+
+		$this->template->title = $dir_disp_name ? $dir_disp_name : 'Nothing';
 		$this->template->content = $view;
 
 
