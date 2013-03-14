@@ -16,7 +16,12 @@ class Controller_Jquerycoreplugins extends Controller_Base {
 		//$class_name = get_class($this);
 		//$content_name = strtolower(str_replace('Controller_', '', $class_name));
 
-		if(!Input::post()) {
+		if(Input::post()) {
+			$file_name = Input::post('file_name');
+			$file_path = $this->resources . Input::post('file_path');
+
+			My_Common::download($file_name, $file_path);
+		}
 
 			if($handle = opendir($this->resources.'jquerycoreplugins/')) {
 
@@ -81,16 +86,6 @@ class Controller_Jquerycoreplugins extends Controller_Base {
 
 			$this->template->title = 'jQuery Core Plugins';
 			$this->template->content = $view;
-
-		} else {
-
-			//echo Input::post('file_name');
-			//echo Input::post('file_path');
-
-			$file_name = Input::post('file_name');
-			$file_path = $this->resources . Input::post('file_path');
-
-			My_Common::download($file_name, $file_path);
 
 		}
 

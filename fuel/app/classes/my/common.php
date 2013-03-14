@@ -7,8 +7,6 @@ class My_Common {
 		echo $file_name.'<br>';
 		echo $file_path;
 
-		exit;
-
 		$error['flg']     = false;
 		$error['content'] = null;
 
@@ -16,6 +14,7 @@ class My_Common {
 		if(!file_exists($file_path)) {
 			$error['flg']     = true;
 			$error['content'] = '指定されたファイルが存在しません。';
+			echo '1';exit;
 			return $error;
 		}
 
@@ -23,6 +22,7 @@ class My_Common {
 		if(!($fp = fopen($file_path, 'r'))) {
 			$error['flg']     = true;
 			$error['content'] = 'ファイルが開けません。もう一度試してください。';
+			echo '2';exit;
 			return $error;
 		}
 		fclose($fp);
@@ -31,6 +31,7 @@ class My_Common {
 		if(($file_size = filesize($file_path)) == 0) {
 			$error['flg']     = true;
 			$error['content'] = 'ファイルサイズが0です。';
+			echo '3';exit;
 			return $error;
 		}
 
@@ -49,6 +50,7 @@ class My_Common {
 		if(!readfile($file_path)) {
 			$error['flg']     = true;
 			$error['content'] = 'ファイルを読み込めません。';
+			echo '4';exit;
 			return $error;
 		}
 
