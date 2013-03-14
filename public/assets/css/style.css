@@ -30,7 +30,6 @@ li {
 }
 
 #title {
-	/*display: inline;*/
 	margin: 15px 0;
 	padding: 15px 0;
 	text-align: center;
@@ -42,6 +41,20 @@ li {
 	padding: 0 20px;
 }
 
+#content .item.dir {
+
+}
+
+#content .item.file {
+	margin: 10px 0;
+	padding: 0 50px;
+}
+
+#end {
+	margin: 15px 0;
+	padding: 15px 0;
+	border-top: solid 1px;
+}
 
 /*
 		#logo{
