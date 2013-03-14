@@ -38,7 +38,7 @@ li {
 
 #content .item-area {
 	margin: 10px 0;
-	backbround-color: blue;
+	background-color: blue;
 }
 
 #content .item {
@@ -51,7 +51,7 @@ li {
 }
 
 #content .item .left {
-	width: 390px;
+	width: 330px;
 	float: left;
 }
 
@@ -65,7 +65,7 @@ li {
 }
 
 #content .item.file .left {
-	width: 360px;
+	width: 300px;
 	float: left;
 }
 
