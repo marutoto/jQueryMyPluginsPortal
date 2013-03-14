@@ -92,10 +92,10 @@ class Controller_Jquerycoreplugins extends Controller_Base {
 		$view = View::forge($content_name.'/index', $data);
 
 
-		$fp = fopen($this->resources.$dir_name.'/'.$dir_name, 'r');
-		if($fp) $dir_disp_name = fgets($fp);
+		$fp = fopen($this->resources.$content_name.'/'.$content_name, 'r');
+		if($fp) $content_disp_name = fgets($fp);
 
-		$this->template->title = $dir_disp_name ? $dir_disp_name : 'Nothing';
+		$this->template->title = $content_disp_name ? $content_disp_name : 'Nothing';
 		$this->template->content = $view;
 
 
