@@ -14,6 +14,16 @@ class Controller_Portals extends Controller_Template {
 
 	public function action_index() {
 
+		/*
+		if($handle = opendir('')) {
+
+
+
+		}
+		*/
+		$data['uri'] = Uri::base('base_url');
+
+
 		$data['test'] = 'testtest';
 		$view = View::forge('portals/index', $data);
 
