@@ -39,13 +39,14 @@ li {
 #content .item-area {
 	margin: 10px 0;
 	padding: 10px 0;
-	background: -moz-linear-gradient(top, rgba(234,162,13,0.74) 0%, rgba(255,244,198,1) 100%); /* FF3.6+ */
-	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(234,162,13,0.74)), color-stop(100%,rgba(255,244,198,1))); /* Chrome,Safari4+ */
-	background: -webkit-linear-gradient(top, rgba(234,162,13,0.74) 0%,rgba(255,244,198,1) 100%); /* Chrome10+,Safari5.1+ */
-	background: -o-linear-gradient(top, rgba(234,162,13,0.74) 0%,rgba(255,244,198,1) 100%); /* Opera 11.10+ */
-	background: -ms-linear-gradient(top, rgba(234,162,13,0.74) 0%,rgba(255,244,198,1) 100%); /* IE10+ */
-	background: linear-gradient(to bottom, rgba(234,162,13,0.74) 0%,rgba(255,244,198,1) 100%); /* W3C */
-	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#bdeaa20d', endColorstr='#fff4c6',GradientType=0 ); /* IE6-9 */
+
+	background: -moz-linear-gradient(top,  rgba(234,162,13,0.52) 0%, rgba(242,193,83,0.54) 38%, rgba(255,244,198,0.49) 100%); /* FF3.6+ */
+	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(234,162,13,0.52)), color-stop(38%,rgba(242,193,83,0.54)), color-stop(100%,rgba(255,244,198,0.49))); /* Chrome,Safari4+ */
+	background: -webkit-linear-gradient(top,  rgba(234,162,13,0.52) 0%,rgba(242,193,83,0.54) 38%,rgba(255,244,198,0.49) 100%); /* Chrome10+,Safari5.1+ */
+	background: -o-linear-gradient(top,  rgba(234,162,13,0.52) 0%,rgba(242,193,83,0.54) 38%,rgba(255,244,198,0.49) 100%); /* Opera 11.10+ */
+	background: -ms-linear-gradient(top,  rgba(234,162,13,0.52) 0%,rgba(242,193,83,0.54) 38%,rgba(255,244,198,0.49) 100%); /* IE10+ */
+	background: linear-gradient(to bottom,  rgba(234,162,13,0.52) 0%,rgba(242,193,83,0.54) 38%,rgba(255,244,198,0.49) 100%); /* W3C */
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#85eaa20d', endColorstr='#7dfff4c6',GradientType=0 ); /* IE6-9 */
 
 	border-radius: 10px;        /* CSS3ëêàƒ */
 	-webkit-border-radius: 10px;    /* Safari,Google Chromeóp */
