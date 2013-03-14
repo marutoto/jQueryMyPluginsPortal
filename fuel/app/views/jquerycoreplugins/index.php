@@ -8,7 +8,7 @@
 	<?php foreach($dir['files'] as $file) :?>
 
 		<div class="item">
-			<?php echo Form::open(array('action' => 'common/download'))?>
+			<?php echo Form::open()?>
 			<?php echo Form::hidden('file_name', $file['file_name'])?>
 			<?php echo Form::hidden('file_path', $file['file_path'])?>
 			<?php echo $file['file_name'];?>
@@ -25,7 +25,7 @@
 <?php foreach($files as $file) :?>
 
 	<div class="item">
-		<?php echo Form::open(array('action' => 'common/download'))?>
+		<?php echo Form::open()?>
 		<?php echo Form::hidden('file_name', $file['file_name'])?>
 		<?php echo Form::hidden('file_path', $file['file_path'])?>
 		<?php echo $file['file_name'];?>
