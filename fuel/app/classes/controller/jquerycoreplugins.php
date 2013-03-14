@@ -37,6 +37,7 @@ class Controller_Jquerycoreplugins extends Controller_Base {
 						if($handle_sub = opendir($this->resources.'jquerycoreplugins/'.$item_name)) {
 
 							$data['dirs'][$i]['dir_name'] = $item_name;
+							$data['dirs'][$i]['files'] = array();
 
 							while(false !== ($file_name = readdir($handle_sub))) {
 
