@@ -84,8 +84,13 @@ class Controller_Jquerycoreplugins extends Controller_Base {
 
 		} else {
 
-			echo Input::post('file_name');
-			echo Input::post('file_path');
+			//echo Input::post('file_name');
+			//echo Input::post('file_path');
+
+			$file_name = Input::post('file_name');
+			$file_path = $this->resources . Input::post('file_path');
+
+			My_Common::download($file_name, $file_path);
 
 		}
 
