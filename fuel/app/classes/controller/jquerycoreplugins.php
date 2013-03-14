@@ -16,70 +16,84 @@ class Controller_Jquerycoreplugins extends Controller_Base {
 		//$class_name = get_class($this);
 		//$content_name = strtolower(str_replace('Controller_', '', $class_name));
 
+		if(!Input::post()) {
 
-		if($handle = opendir($this->resources.'jquerycoreplugins/')) {
+			if($handle = opendir($this->resources.'jquerycoreplugins/')) {
 
-			$i = 0;
-			while(false !== ($item_name = readdir($handle))) {
+				$i = 0;
+				while(false !== ($item_name = readdir($handle))) {
 
-				if($item_name != '.' && $item_name != '..') {
+					if($item_name != '.' && $item_name != '..') {
 
-					// パスを取得
-					//$item_path = $this->resources . $content_name . '/' . $item_name;
-					$item_path = $this->resources . 'jquerycoreplugins/' . $item_name;
+						// パスを取得
+						//$item_path = $this->resources . $content_name . '/' . $item_name;
+						$item_path = $this->resources . 'jquerycoreplugins/' . $item_name;
 
-					// 表示名用ファイルの場合
-					if($item_name == 'jquerycoreplugins') {
-						continue;
+						// 表示名用ファイルの場合
+						if($item_name == 'jquerycoreplugins') {
+							continue;
 
-					// ディレクトリの場合
-					} elseif(is_dir($item_path)) {
+						// ディレクトリの場合
+						} elseif(is_dir($item_path)) {
 
-						if($handle_sub = opendir($this->resources.'jquerycoreplugins/'.$item_name)) {
+							if($handle_sub = opendir($this->resources.'jquerycoreplugins/'.$item_name)) {
 
-							$data['dirs'][$i]['dir_name'] = $item_name;
+								$data['dirs'][$i]['dir_name'] = $item_name;
 
-							$j = 0;
-							while(false !== ($file_name = readdir($handle_sub))) {
+								$j = 0;
+								while(false !== ($file_name = readdir($handle_sub))) {
 
-								if($file_name != '.' && $file_name != '..') {
+									if($file_name != '.' && $file_name != '..') {
 
-									//$file_path = $item_path . '/' . $file_name;
-									$file_path = 'jquerycoreplugins/' . $item_name . '/' . $file_name;
+										//$file_path = $item_path . '/' . $file_name;
+										$file_path = 'jquerycoreplugins/' . $item_name . '/' . $file_name;
 
-									$data['dirs'][$i]['files'][$j]['file_name'] = $file_name;
-									$data['dirs'][$i]['files'][$j]['file_path'] = $file_path;
+										$data['dirs'][$i]['files'][$j]['file_name'] = $file_name;
+										$data['dirs'][$i]['files'][$j]['file_path'] = $file_path;
 
-									$j++;
+										$j++;
+									}
+
 								}
 
 							}
 
+						// ファイルの場合
+						} else {
+
+							$data['files'][$i]['file_name'] = $item_name;
+							$data['files'][$i]['file_path'] = 'jquerycoreplugins/' . $item_name;
+
 						}
 
-					// ファイルの場合
-					} else {
-
-						$data['files'][$i]['file_name'] = $item_name;
-						$data['files'][$i]['file_path'] = 'jquerycoreplugins/' . $item_name;
+						$i++;
 
 					}
 
-					$i++;
-
 				}
+
+				closedir($handle);
 
 			}
 
-			closedir($handle);
+
+			$view = View::forge('jquerycoreplugins/index', $data);
+
+			$this->template->title = 'jQuery Core Plugins';
+			$this->template->content = $view;
+
+		} else {
+
+			echo Input::post('file_name');
+			echo Input::post('file_path');
 
 		}
 
+	}
 
-		$view = View::forge('jquerycoreplugins/index', $data);
+	public function action_index() {
 
-		$this->template->title = 'jQuery Core Plugins';
-		$this->template->content = $view;
+
 
 	}
 
