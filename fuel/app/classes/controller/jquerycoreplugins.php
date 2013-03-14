@@ -44,7 +44,8 @@ class Controller_Jquerycoreplugins extends Controller_Base {
 
 								if($file_name != '.' && $file_name != '..') {
 
-									$file_path = $item_path . '/' . $file_name;
+									//$file_path = $item_path . '/' . $file_name;
+									$file_path = 'jquerycoreplugins/' . $item_name . '/' . $file_name;
 
 									$data['dirs'][$i]['files'][$j]['file_name'] = $file_name;
 									$data['dirs'][$i]['files'][$j]['file_path'] = $file_path;
@@ -60,7 +61,7 @@ class Controller_Jquerycoreplugins extends Controller_Base {
 					} else {
 
 						$data['files'][$i]['file_name'] = $item_name;
-						$data['files'][$i]['file_path'] = $item_path;
+						$data['files'][$i]['file_path'] = 'jquerycoreplugins/' . $item_name;
 
 					}
 
