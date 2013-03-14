@@ -4,6 +4,9 @@ class My_Common {
 
 	public static function download($file_name, $file_path) {
 
+		echo $file_name.'<br>';
+		echo $file_path;
+
 		exit;
 
 		$error['flg']     = false;
