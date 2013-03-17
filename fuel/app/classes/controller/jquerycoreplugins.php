@@ -48,7 +48,7 @@ class Controller_Jquerycoreplugins extends Controller_Base {
 						if($handle_sub = opendir($this->resources . $content_name . '/' . $item_name)) {
 
 							$data['dirs'][$i]['dir_name']  = $item_name;
-							$data['dirs'][$i]['file_name'] = array();
+							$data['dirs'][$i]['files'] = array();
 
 							$j = 0;
 							while(false !== ($file_name = readdir($handle_sub))) {
@@ -93,10 +93,7 @@ class Controller_Jquerycoreplugins extends Controller_Base {
 		$this->template->title = $content_disp_name ? $content_disp_name : 'Nothing';
 		$this->template->content = $view;
 
-
-
 	}
-
 
 }
 

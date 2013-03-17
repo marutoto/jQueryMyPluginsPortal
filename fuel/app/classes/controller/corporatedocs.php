@@ -29,7 +29,7 @@ class Controller_Corporatedocs extends Controller_Base {
 		$class_name = get_class($this);
 		$content_name = strtolower(str_replace('Controller_', '', $class_name));
 
-		if($handle = opendir($this->resources . $content_name . '/')) {
+		if($handle = opendir(mb_convert_encoding($this->resources . $content_name . '/', 'SJIS', 'UTF-8'))) {
 
 			$i = 0;
 			while(false !== ($item_name = readdir($handle))) {
@@ -48,7 +48,7 @@ class Controller_Corporatedocs extends Controller_Base {
 						if($handle_sub = opendir($this->resources . $content_name . '/' . $item_name)) {
 
 							$data['dirs'][$i]['dir_name']  = $item_name;
-							$data['dirs'][$i]['file_name'] = array();
+							$data['dirs'][$i]['files'] = array();
 
 							$j = 0;
 							while(false !== ($file_name = readdir($handle_sub))) {
@@ -93,10 +93,7 @@ class Controller_Corporatedocs extends Controller_Base {
 		$this->template->title = $content_disp_name ? $content_disp_name : 'Nothing';
 		$this->template->content = $view;
 
-
-
 	}
-
 
 }
 
