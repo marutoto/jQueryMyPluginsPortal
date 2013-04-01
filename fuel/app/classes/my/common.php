@@ -7,6 +7,9 @@ class My_Common {
 		$error['flg']     = false;
 		$error['content'] = null;
 
+		$file_name = mb_convert_encoding($file_name, 'SJIS');
+		$file_path = mb_convert_encoding($file_path, 'SJIS');
+
 		//ファイルの存在を確認
 		if(!file_exists($file_path)) {
 			$error['flg']     = true;

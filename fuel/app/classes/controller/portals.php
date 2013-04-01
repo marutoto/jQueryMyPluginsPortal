@@ -34,7 +34,7 @@ class Controller_Portals extends Controller_Base {
 
 						$dir_disp_name = fgets($fp);
 
-						$data['dirs'][$dir_name] = $dir_disp_name;
+						$data['dirs']['list/'.$dir_name] = $dir_disp_name;
 
 					}
 

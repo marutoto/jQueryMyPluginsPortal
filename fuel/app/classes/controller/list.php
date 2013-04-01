@@ -1,6 +1,6 @@
 <?php
 
-class Controller_Jquerycoreplugins extends Controller_Base {
+class Controller_List extends Controller_Base {
 
 	public function before() {
 
@@ -11,23 +11,18 @@ class Controller_Jquerycoreplugins extends Controller_Base {
 		$this->template->js = array();
 	}
 
-	public function action_index() {
+	public function action_index($content_name) {
+
+		//TODO:引数チェック
+		//$content_name
 
 		$data          = array();
 		$data['dirs']  = array();
 		$data['files'] = array();
 
-		// ダウンロード用POSTデータが存在する場合
-		if(Input::post()) {
-			$file_name = Input::post('file_name');
-			$file_path = $this->resources . Input::post('file_path');
-
-			My_Common::download($file_name, $file_path);
-		}
-
 		// 一覧表示処理
-		$class_name = get_class($this);
-		$content_name = strtolower(str_replace('Controller_', '', $class_name));
+		//$class_name = get_class($this);
+		//$content_name = strtolower(str_replace('Controller_', '', $class_name));
 
 		if($handle = opendir($this->resources . $content_name . '/')) {
 
@@ -35,6 +30,8 @@ class Controller_Jquerycoreplugins extends Controller_Base {
 			while(false !== ($item_name = readdir($handle))) {
 
 				if($item_name != '.' && $item_name != '..') {
+
+					$item_name = mb_convert_encoding($item_name, 'UTF-8', 'SJIS');
 
 					$item_path = $this->resources . $content_name . '/' . $item_name;
 
@@ -92,6 +89,17 @@ class Controller_Jquerycoreplugins extends Controller_Base {
 
 		$this->template->title = $content_disp_name ? $content_disp_name : 'Nothing';
 		$this->template->content = $view;
+
+
+		// ダウンロード用POSTデータが存在する場合
+		if(Input::post()) {
+			$file_name = Input::post('file_name');
+			$file_path = $this->resources . Input::post('file_path');
+
+			My_Common::download($file_name, $file_path);
+
+			exit;
+		}
 
 	}
 
